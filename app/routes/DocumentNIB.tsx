@@ -85,11 +85,11 @@ export default function DocumentNIB() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-display flex flex-col">
+    <div className="min-h-screen bg-white text-gray-900 font-display">
       <Ticker />
 
       {/* NAV */}
-      <nav className="sticky top-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
+      <nav className="fixed top-8 left-0 right-0 z-40 bg-white border-b-4 border-emerald-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Logo />
@@ -103,7 +103,7 @@ export default function DocumentNIB() {
         </div>
       </nav>
 
-      <main className="flex-grow relative bg-gray-50">
+      <main className="pt-28 min-h-screen relative bg-gray-50">
         <div className="absolute inset-0 scanlines bg-scanlines opacity-20 pointer-events-none z-10 h-full w-full fixed"></div>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-20">
           <div className="mb-10">

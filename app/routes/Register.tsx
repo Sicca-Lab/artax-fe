@@ -27,11 +27,11 @@ export default function Register() {
   const [showDocHelp, setShowDocHelp] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-display flex flex-col">
+    <div className="min-h-screen bg-white text-gray-900 font-display">
       <Ticker />
 
       {/* NAV */}
-      <nav className="sticky top-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
+      <nav className="fixed top-8 left-0 right-0 z-40 bg-white border-b-4 border-emerald-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Logo />
@@ -45,7 +45,7 @@ export default function Register() {
         </div>
       </nav>
 
-      <main className="flex-grow relative bg-gray-50">
+      <main className="pt-28 min-h-screen relative bg-gray-50">
         <div className="absolute inset-0 scanlines bg-scanlines opacity-20 pointer-events-none z-10 h-full w-full fixed"></div>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-20">
           <div className="mb-10">
@@ -161,7 +161,7 @@ export default function Register() {
 
                     <div className="space-y-2">
                       <label className="block text-xs font-mono text-gray-600 uppercase tracking-widest">
-                        NIB (Nomor Induk Berusaha)
+                        Perizinan Limbah
                       </label>
                       <div className="border-2 border-dashed border-gray-300 bg-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-colors group cursor-pointer relative p-6 flex flex-col items-center justify-center text-center rounded-sm">
                         <input accept=".pdf,.jpg,.png" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file" />
@@ -175,7 +175,7 @@ export default function Register() {
 
                     <div className="space-y-2">
                       <label className="block text-xs font-mono text-gray-600 uppercase tracking-widest">
-                        Dokumen AMDAL / UKL-UPL
+                        Perizinan Limbah
                       </label>
                       <div className="border-2 border-dashed border-gray-300 bg-gray-100 hover:border-cyan-500 hover:bg-cyan-50 transition-colors group cursor-pointer relative p-6 flex flex-col items-center justify-center text-center rounded-sm">
                         <input accept=".pdf" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file" />
@@ -226,16 +226,16 @@ export default function Register() {
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 mb-3 uppercase tracking-tight">Kami Bantu Urus Legalitas</h3>
                         <p className="text-gray-700 text-sm mb-6 leading-relaxed border-l-2 border-cyan-400 pl-3">
-                          Arta akan menangani seluruh proses pembuatan NIB, AMDAL, dan perizinan pabrik Anda secara resmi dan transparan.
+                          Arta akan menangani seluruh proses pembuatan perizinan limbah dan legalitas pabrik Anda secara resmi dan transparan.
                         </p>
                         <div className="bg-white border border-cyan-300 p-4 mb-6 space-y-3">
                           <div className="flex items-start gap-3">
                             <CheckCircleIcon className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-gray-700">Pembuatan NIB (Nomor Induk Berusaha)</span>
+                            <span className="text-sm text-gray-700">Pembuatan Perizinan Limbah</span>
                           </div>
                           <div className="flex items-start gap-3">
                             <CheckCircleIcon className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-gray-700">Penyusunan Dokumen AMDAL / UKL-UPL</span>
+                            <span className="text-sm text-gray-700">Penyusunan Dokumen Perizinan Limbah</span>
                           </div>
                           <div className="flex items-start gap-3">
                             <CheckCircleIcon className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
