@@ -13,5 +13,4 @@ export default [
   route("document-register-nib", "routes/DocumentNIB.tsx"),
   route("document-register-amdal", "routes/DocumentAmdal.tsx"),
   route("document-register-pricing", "routes/DocumentPricing.tsx"),
-  route("tracking", "routes/Tracking.tsx"),
 ] satisfies RouteConfig;
