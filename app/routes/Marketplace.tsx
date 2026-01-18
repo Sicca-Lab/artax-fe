@@ -87,10 +87,19 @@ export default function Marketplace() {
 
   return (
     <div className="bg-white text-gray-900 font-display min-h-screen flex flex-col overflow-x-hidden">
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
       <Ticker />
 
       {/* NAV */}
-      <nav className="sticky top-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
+      <nav className="fixed top-8 left-0 right-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Logo />
@@ -104,7 +113,7 @@ export default function Marketplace() {
         </div>
       </nav>
 
-      <div className="flex flex-1 relative">
+      <div className="flex flex-1 relative mt-28">
         <Sidebar
           items={[
             { id: 'dashboard', label: 'Dasbor', icon: <HomeIcon className="w-5 h-5" />, href: '/dashboard', isActive: false },
@@ -116,7 +125,7 @@ export default function Marketplace() {
           userInfo={{ initials: 'OP', name: 'Operator 7', unit: 'Pasar Surabaya' }}
         />
 
-        <main className="flex-1 flex overflow-hidden">
+        <main className="flex-1 flex overflow-hidden ml-64">
           <div className="flex-1 overflow-y-auto p-4 md:p-8 bg-gray-50 relative">
             <div className="max-w-6xl mx-auto flex flex-col gap-8 relative z-10">
               <section className="w-full bg-white border-2 border-gray-300 shadow-lg relative group overflow-hidden">
@@ -228,34 +237,67 @@ export default function Marketplace() {
           </div>
 
           {showPurchasePanel && selectedListing && (
-            <aside className="w-80 bg-white border-l-2 border-gray-300 flex flex-col h-[calc(100vh-76px)] sticky top-[76px] shadow-2xl z-20">
-              <div className="p-4 border-b-2 border-gray-300 bg-gray-100">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="bg-emerald-100 text-emerald-600 text-xs font-mono border-2 border-emerald-500 px-2 py-0.5">TERSEDIA</span>
-                  <button onClick={() => { setShowPurchasePanel(false); setSelectedListing(null); }} className="text-gray-500 hover:text-gray-900">
-                    <XMarkIcon className="w-5 h-5" />
+            <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+              <div className="bg-white border-4 border-emerald-500 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+                <div className="bg-emerald-500 p-6 border-b-4 border-emerald-600 relative">
+                  <button onClick={() => { setShowPurchasePanel(false); setSelectedListing(null); }} className="absolute top-4 right-4 text-white hover:text-emerald-100 transition-colors">
+                    <XMarkIcon className="w-6 h-6" />
                   </button>
+                  <h2 className="text-white text-3xl font-black font-mono uppercase">DETAIL PRODUK LIMBAH</h2>
+                  <p className="text-emerald-100 text-sm font-mono mt-1">ArtaX Platform - Marketplace</p>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900 font-mono uppercase leading-tight mb-1">{selectedListing.title}</h2>
-                <p className="text-xs text-gray-600 font-mono">Penjual: {selectedListing.seller}</p>
-              </div>
-              <div className="p-6 flex-1 overflow-y-auto space-y-6">
-                {/* SELLER INFO - PROMINENT */}
-                <div className="bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-gray-700 p-5">
-                  <div className="flex items-start gap-3">
-                    <div className="bg-white p-3 border-2 border-gray-600 flex-shrink-0">
-                      <span className="text-2xl">🏭</span>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs text-gray-400 font-mono uppercase mb-1">Penjual</p>
-                      <h3 className="text-white text-lg font-black font-mono leading-tight mb-2">{selectedListing.seller}</h3>
-                      <div className="flex items-center gap-2">
-                        <span className="bg-emerald-500 text-white text-[10px] px-2 py-0.5 font-mono font-bold border border-emerald-600">✓ TERVERIFIKASI</span>
-                        <span className="text-gray-400 text-xs font-mono">• Rating 4.8/5.0</span>
+                
+                <div className="p-8 space-y-6">
+                  {/* PRODUCT INFO */}
+                  <div className="bg-gray-50 border-2 border-gray-300 p-6">
+                    <h3 className="font-bold text-lg font-mono uppercase mb-4 border-b-2 border-gray-300 pb-2">INFORMASI PRODUK</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="col-span-2 flex items-center gap-4 mb-4">
+                        <div className="w-24 h-24 bg-gray-200 border-2 border-gray-400 flex items-center justify-center flex-shrink-0">
+                          <div className="w-20 h-20 bg-center bg-no-repeat" style={{backgroundImage: `url("${selectedListing.image}")`, backgroundSize: 'contain'}}></div>
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-xl font-black text-gray-900 font-mono mb-1">{selectedListing.title}</h4>
+                          <div className="flex items-center gap-2">
+                            <span className={`bg-${selectedListing.categoryColor}-100 border-2 border-${selectedListing.categoryColor}-500 px-2 py-1 text-${selectedListing.categoryColor}-600 text-xs font-mono font-bold`}>
+                              {selectedListing.category}
+                            </span>
+                            {selectedListing.verified && (
+                              <span className="bg-emerald-100 text-emerald-600 text-xs font-mono font-bold px-2 py-1 border-2 border-emerald-500">✓ TERVERIFIKASI</span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-2 text-sm font-mono">
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Produk:</span>
+                          <span className="text-gray-900 font-bold text-right">{selectedListing.title}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Volume:</span>
+                          <span className="text-gray-900 font-bold text-right">{selectedListing.volume}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Lokasi Pickup:</span>
+                          <span className="text-gray-900 font-bold text-right">{selectedListing.location}</span>
+                        </div>
+                      </div>
+                      <div className="space-y-2 text-sm font-mono">
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Penjual:</span>
+                          <span className="text-gray-900 font-bold text-right">{selectedListing.seller}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Pembeli:</span>
+                          <span className="text-gray-900 font-bold text-right">PT Recycling Indonesia</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Kondisi:</span>
+                          <span className="text-emerald-600 font-bold text-right">Siap Kirim</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
                 <div className="bg-emerald-50 border-2 border-emerald-300 p-4">
                   <p className="text-xs text-gray-600 font-mono uppercase mb-1">Harga Jual</p>
@@ -359,7 +401,8 @@ export default function Marketplace() {
                   </ol>
                 </div>
               </div>
-            </aside>
+            </div>
+          </div>
           )}
         </main>
       </div>

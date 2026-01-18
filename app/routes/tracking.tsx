@@ -90,7 +90,7 @@ export default function Tracking() {
       <Ticker />
 
       {/* NAV */}
-      <nav className="sticky top-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
+      <nav className="fixed top-8 left-0 right-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Logo />
@@ -104,7 +104,7 @@ export default function Tracking() {
         </div>
       </nav>
 
-      <div className="flex flex-1 w-full">
+      <div className="flex flex-1 w-full mt-28">
         <Sidebar
           items={[
             { id: 'dashboard', label: 'Dasbor', icon: <HomeIcon className="w-5 h-5" />, href: '/dashboard', isActive: false },
@@ -117,7 +117,7 @@ export default function Tracking() {
         />
 
         {/* MAIN CONTENT */}
-        <main className="flex-1 overflow-y-auto bg-gray-50">
+        <main className="flex-1 overflow-y-auto bg-gray-50 ml-64">
           <div className="max-w-5xl mx-auto p-6 lg:p-12 space-y-6">
             
             {/* BACK BUTTON */}

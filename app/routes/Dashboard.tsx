@@ -30,11 +30,11 @@ export default function Dashboard() {
   const [chatOpen, setChatOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-display flex flex-col">
+    <div className="min-h-screen bg-white text-gray-900 font-display">
       <Ticker />
 
       {/* NAV */}
-      <nav className="sticky top-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
+      <nav className="fixed top-8 left-0 right-0 z-40 bg-white border-b-4 border-emerald-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Logo />
@@ -48,21 +48,20 @@ export default function Dashboard() {
         </div>
       </nav>
 
-      <div className="flex flex-1 w-full">
-        <Sidebar
-          items={[
-            { id: 'dashboard', label: 'Dasbor', icon: <HomeIcon className="w-5 h-5" />, href: '/dashboard', isActive: false },
-            { id: 'marketplace', label: 'Pasar', icon: <ShoppingBagIcon className="w-5 h-5" />, href: '/marketplace', isActive: false },
-            { id: 'logistics', label: 'Logistik', icon: <TruckIcon className="w-5 h-5" />, href: '/estimation', isActive: true },
-            { id: 'report', label: 'Laporan', icon: <ChartBarIcon className="w-5 h-5" />, href: '/report', isActive: false },
-            { id: 'settings', label: 'Pengaturan', icon: <Cog6ToothIcon className="w-5 h-5" />, href: '#', isActive: false },
-          ]}
-          userInfo={{ initials: 'OP', name: 'Operator 7', unit: 'Kantor Pusat' }}
-        />
+      <Sidebar
+        items={[
+          { id: 'dashboard', label: 'Dasbor', icon: <HomeIcon className="w-5 h-5" />, href: '/dashboard', isActive: false },
+          { id: 'marketplace', label: 'Pasar', icon: <ShoppingBagIcon className="w-5 h-5" />, href: '/marketplace', isActive: false },
+          { id: 'logistics', label: 'Logistik', icon: <TruckIcon className="w-5 h-5" />, href: '/estimation', isActive: true },
+          { id: 'report', label: 'Laporan', icon: <ChartBarIcon className="w-5 h-5" />, href: '/report', isActive: false },
+          { id: 'settings', label: 'Pengaturan', icon: <Cog6ToothIcon className="w-5 h-5" />, href: '#', isActive: false },
+        ]}
+        userInfo={{ initials: 'OP', name: 'Operator 7', unit: 'Kantor Pusat' }}
+      />
 
-        {/* MAIN CONTENT */}
-        <main className="flex-1 flex flex-col relative overflow-hidden bg-white">
-          <div className="flex-1 overflow-y-auto p-6 lg:p-8 bg-gray-50">
+      {/* MAIN CONTENT */}
+      <main className="ml-64 pt-28 min-h-screen bg-gray-50">
+          <div className="p-6">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6">
               {/* MAIN MAP SECTION */}
               <div className="col-span-1 md:col-span-12 lg:col-span-8 flex flex-col">
@@ -245,7 +244,6 @@ export default function Dashboard() {
             </div>
           </div>
         </main>
-      </div >
-    </div >
+    </div>
   );
 }

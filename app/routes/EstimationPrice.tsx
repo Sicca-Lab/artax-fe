@@ -32,7 +32,7 @@ export default function EstimationPrice() {
       <Ticker />
 
       {/* NAV */}
-      <nav className="sticky top-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
+      <nav className="fixed top-8 left-0 right-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Logo />
@@ -46,7 +46,7 @@ export default function EstimationPrice() {
         </div>
       </nav>
 
-      <div className="flex flex-1 w-full">
+      <div className="flex flex-1 w-full mt-28">
         <Sidebar
           items={[
             { id: 'dashboard', label: 'Dasbor', icon: <HomeIcon className="w-5 h-5" />, href: '/dashboard', isActive: true },
@@ -58,11 +58,10 @@ export default function EstimationPrice() {
           userInfo={{ initials: 'OP', name: 'Operator 7', unit: 'Kantor Pusat' }}
         />
 
-      <main className="flex-1 flex flex-col relative overflow-hidden bg-white">
+      <main className="flex-1 flex flex-col relative overflow-hidden bg-white ml-64">
         <div className="flex-1 overflow-y-auto p-6 lg:p-8 bg-gray-50">
-          <div className="mx-auto max-w-7xl h-full flex flex-col">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full">
-              <div className="lg:col-span-8 flex flex-col gap-6">
+          <div className="mx-auto max-w-7xl flex flex-col gap-6">
+            <div className="flex flex-col gap-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2 uppercase tracking-wide">
                     <SparklesIcon className="w-5 h-5 text-emerald-500" />
@@ -175,99 +174,152 @@ export default function EstimationPrice() {
                     <SparklesIcon className="w-5 h-5" />
                     SIMPAN LISTING
                   </button>
-                </div>
-              </div>
 
-              <div className="lg:col-span-4 flex flex-col h-full">
-                <div className="bg-gray-900 border-4 border-gray-700 shadow-lg h-full flex flex-col relative overflow-hidden">
-                  <div className="p-6 flex flex-col h-full bg-gray-900 text-emerald-500 font-mono relative z-10">
-                    <div className="flex justify-between items-end border-b-2 border-emerald-900/50 pb-2 mb-4">
-                      <div className="flex gap-1">
-                        <div className="w-2 h-2 bg-emerald-500 animate-pulse"></div>
-                        <div className="w-2 h-2 bg-emerald-900"></div>
-                        <div className="w-2 h-2 bg-emerald-900"></div>
+                </div>
+
+              {/* AI RESULTS PANEL - MOVED TO BOTTOM */}
+              <div className="w-full">
+                <div className="bg-gradient-to-br from-emerald-50 to-blue-50 border-4 border-emerald-300 shadow-lg flex flex-col relative overflow-hidden">
+                  <div className="p-6 flex flex-col h-full text-gray-800 font-mono relative z-10">
+                    <div className="border-b-2 border-emerald-300 pb-3 mb-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <SparklesIcon className="w-5 h-5 text-emerald-600" />
+                          <h3 className="text-sm font-bold text-emerald-700 uppercase tracking-wide">AI Estimator Pro</h3>
+                        </div>
+                        <div className="flex gap-1">
+                          <div className="w-2 h-2 bg-emerald-500 animate-pulse rounded-full"></div>
+                          <div className="w-2 h-2 bg-emerald-300 rounded-full"></div>
+                          <div className="w-2 h-2 bg-emerald-300 rounded-full"></div>
+                        </div>
                       </div>
+                      <p className="text-[10px] text-gray-600 mt-2 leading-relaxed">
+                        Sistem AI kami menggunakan teknologi Computer Vision dan Machine Learning untuk mengidentifikasi jenis limbah, menghitung estimasi harga pasar real-time, dan memberikan rekomendasi dokumen yang diperlukan.
+                      </p>
                     </div>
-                    <div className="flex flex-col items-center justify-center py-6 bg-gray-800 border-2 border-emerald-900/30 mb-6 relative group">
-                      <div className="absolute top-2 left-2 text-[10px] uppercase text-emerald-700">Est. Nilai Pasar</div>
-                      <div className="text-5xl font-bold text-yellow-400 tracking-tighter drop-shadow-[0_0_8px_rgba(236,201,75,0.5)]">
+                    <div className="flex flex-col items-center justify-center py-6 bg-white border-2 border-emerald-300 mb-4 relative shadow-sm">
+                      <div className="absolute top-2 left-2 text-[10px] uppercase text-emerald-600 font-bold">Est. Nilai Pasar</div>
+                      <div className="text-5xl font-bold text-emerald-600 tracking-tighter">
                         Rp 6,75jt
                       </div>
-                      <div className="text-xs text-emerald-600 mt-1 flex items-center gap-1">
+                      <div className="text-xs text-emerald-500 mt-1 flex items-center gap-1 font-semibold">
                         <span>▲</span>
                         +4.2% vs minggu lalu
                       </div>
                     </div>
-                    <div className="flex flex-col gap-5 flex-1">
-                      <div className="space-y-1">
-                        <div className="flex justify-between text-sm text-emerald-400">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div className="bg-emerald-100 border-2 border-emerald-300 p-3">
+                        <div className="flex justify-between text-sm text-emerald-700 font-semibold mb-2">
                           <span>Kepercayaan AI</span>
                           <span>92%</span>
                         </div>
-                        <div className="h-3 w-full bg-gray-800 overflow-hidden flex gap-[2px]">
+                        <div className="h-3 w-full bg-white border border-emerald-200 overflow-hidden flex gap-[2px]">
                           {[...Array(9)].map((_, i) => (
                             <div key={i} className="w-[10%] bg-emerald-500 h-full"></div>
                           ))}
-                          <div className="w-[10%] bg-emerald-900 h-full"></div>
+                          <div className="w-[10%] bg-emerald-200 h-full"></div>
+                        </div>
+                        <p className="text-[9px] text-gray-600 mt-2">Tingkat akurasi berdasarkan 10,000+ data training limbah</p>
+                      </div>
+                      <div className="bg-white border-2 border-blue-300 p-3">
+                        <div className="text-[10px] uppercase text-blue-600 mb-1 font-bold">Material Terdeteksi</div>
+                        <div className="text-lg text-gray-900 font-bold leading-none">Limbah Plastik HDPE</div>
+                        <div className="text-xs text-gray-600 mt-1">Kepadatan: Tinggi // Kontaminasi: &lt; 5%</div>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-300 p-3">
+                        <div className="text-[10px] uppercase text-blue-700 mb-2 font-bold flex items-center gap-1">
+                          <span>💰</span> Informasi Harga Pasar
+                        </div>
+                        <div className="space-y-1.5 text-xs text-gray-700">
+                          <div className="flex justify-between">
+                            <span>Harga Dasar HDPE:</span>
+                            <span className="font-bold text-emerald-600">Rp 12.000/kg</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Bonus Kualitas Tinggi:</span>
+                            <span className="font-bold text-emerald-600">+Rp 3.000/kg</span>
+                          </div>
+                          <div className="flex justify-between border-t border-blue-200 pt-1">
+                            <span className="font-bold">Total per kg:</span>
+                            <span className="font-bold text-emerald-600">Rp 15.000/kg</span>
+                          </div>
+                        </div>
+                        <p className="text-[9px] text-gray-500 mt-2 italic">* Harga dapat berubah sesuai kondisi pasar</p>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-300 p-3">
+                        <div className="text-[10px] uppercase text-purple-700 mb-2 font-bold flex items-center gap-1">
+                          <span>🔬</span> Komposisi Limbah Plastik HDPE
+                        </div>
+                        <div className="space-y-1 text-[10px] text-gray-700">
+                          <div className="flex items-start gap-2">
+                            <span className="text-purple-500 font-bold">✓</span>
+                            <span>Polietilena Densitas Tinggi (HDPE) min. 85%</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <span className="text-purple-500 font-bold">✓</span>
+                            <span>Kontaminan (label, lem) max. 5%</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <span className="text-purple-500 font-bold">✓</span>
+                            <span>Kadar air max. 2%</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <span className="text-purple-500 font-bold">✓</span>
+                            <span>Bebas dari logam berat</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <span className="text-purple-500 font-bold">✓</span>
+                            <span>Warna: Bening/Putih (harga tertinggi)</span>
+                          </div>
                         </div>
                       </div>
-                      <div className="bg-gray-800 p-3 border-2 border-emerald-900/50">
-                        <div className="text-[10px] uppercase text-emerald-700 mb-1">Material Terdeteksi</div>
-                        <div className="text-lg text-white font-bold leading-none">Limbah Plastik HDPE</div>
-                        <div className="text-xs text-emerald-400/70 mt-1">Kepadatan: Tinggi // Kontaminasi: &lt; 5%</div>
-                      </div>
-                      <div className="bg-blue-900/50 border-2 border-blue-500/30 p-3">
-                        <div className="text-[10px] uppercase text-blue-400 mb-2 flex items-center gap-1">
+                      <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-400 p-3">
+                        <div className="text-[10px] uppercase text-green-700 mb-2 flex items-center gap-1 font-bold">
                           <span>✓</span> Verifikasi AI Selesai
                         </div>
-                        <div className="space-y-1.5 text-xs text-blue-200">
+                        <div className="space-y-1.5 text-xs text-gray-700">
                           <div className="flex items-start gap-2">
-                            <span className="text-blue-400">•</span>
+                            <span className="text-green-600 font-bold">•</span>
                             <span>Kategori: Plastik HDPE (Kode: 02)</span>
                           </div>
                           <div className="flex items-start gap-2">
-                            <span className="text-blue-400">•</span>
+                            <span className="text-green-600 font-bold">•</span>
                             <span>Status: Non-B3 (Tidak Berbahaya)</span>
                           </div>
                           <div className="flex items-start gap-2">
-                            <span className="text-blue-400">•</span>
+                            <span className="text-green-600 font-bold">•</span>
                             <span>Estimasi Harga: Rp 6.750.000</span>
                           </div>
                         </div>
                       </div>
-                      <div className="bg-yellow-900/30 border-2 border-yellow-500/30 p-3">
-                        <div className="text-[10px] uppercase text-yellow-400 mb-2">📄 Dokumen Diperlukan</div>
-                        <div className="space-y-1 text-[10px] text-yellow-200">
+                    </div>
+
+
+                    <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-400 p-3 mt-4">
+                        <div className="text-[10px] uppercase text-yellow-700 mb-2 font-bold">📄 Dokumen Diperlukan</div>
+                        <div className="space-y-1 text-[10px] text-gray-700">
                           <div className="flex items-start gap-1.5">
-                            <span className="text-yellow-400">✓</span>
+                            <span className="text-yellow-600 font-bold">✓</span>
                             <span>NIB (Nomor Induk Berusaha)</span>
                           </div>
                           <div className="flex items-start gap-1.5">
-                            <span className="text-yellow-400">✓</span>
+                            <span className="text-yellow-600 font-bold">✓</span>
                             <span>Dokumen AMDAL/UKL-UPL</span>
                           </div>
                           <div className="flex items-start gap-1.5">
-                            <span className="text-yellow-400">✓</span>
+                            <span className="text-yellow-600 font-bold">✓</span>
                             <span>Surat Pernyataan Kualitas</span>
                           </div>
                         </div>
-                        <div className="mt-2 pt-2 border-t border-yellow-500/20 text-[9px] text-yellow-300/70">
+                        <div className="mt-2 pt-2 border-t border-yellow-300 text-[9px] text-gray-600">
                           Upload dokumen di menu Registrasi
                         </div>
                       </div>
-                      <div className="flex-1 min-h-[100px] border-2 border-emerald-900/30 bg-gray-800 p-2 relative flex items-end gap-1">
-                        <div className="absolute top-2 left-2 text-[10px] text-emerald-700 uppercase">Tren 30 Hari</div>
-                        <div className="w-1/6 bg-emerald-900/40 h-[40%]"></div>
-                        <div className="w-1/6 bg-emerald-900/50 h-[30%]"></div>
-                        <div className="w-1/6 bg-emerald-900/60 h-[50%]"></div>
-                        <div className="w-1/6 bg-emerald-900/70 h-[45%]"></div>
-                        <div className="w-1/6 bg-emerald-900/80 h-[65%]"></div>
-                        <div className="w-1/6 bg-emerald-500 h-[80%] shadow-[0_0_10px_rgba(16,185,129,0.4)]"></div>
-                      </div>
-                    </div>
-                    <div className="mt-auto pt-4 border-t-2 border-emerald-900/50 text-[10px] text-emerald-800 flex justify-between font-mono">
-                      <span>MEM: 64KB OK</span>
-                      <span className="animate-pulse">_</span>
+                    <div className="mt-auto pt-4 border-t-2 border-emerald-300 text-[10px] text-gray-600 flex justify-between font-mono">
+                      <span>AI Status: Online</span>
+                      <span className="text-emerald-600 animate-pulse">●</span>
                     </div>
                   </div>
                 </div>

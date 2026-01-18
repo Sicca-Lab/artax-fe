@@ -20,7 +20,7 @@ export default function Report() {
       <Ticker />
 
       {/* NAV */}
-      <nav className="sticky top-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
+      <nav className="fixed top-8 left-0 right-0 z-40 bg-white border-b-4 border-emerald-200 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Logo />
@@ -34,7 +34,7 @@ export default function Report() {
         </div>
       </nav>
 
-      <div className="flex flex-1 w-full">
+      <div className="flex flex-1 w-full mt-28">
         <Sidebar
           items={[
             { id: 'dashboard', label: 'Dasbor', icon: <HomeIcon className="w-5 h-5" />, href: '/dashboard', isActive: false },
@@ -46,9 +46,9 @@ export default function Report() {
           userInfo={{ initials: 'OP', name: 'Operator 7', unit: 'Pusat ESG' }}
         />
 
-        <div className="flex-1 flex flex-col overflow-hidden">
-          <div className="flex-1 flex justify-center py-8 px-4 md:px-8 lg:px-12 overflow-y-auto">
-        <div className="flex flex-col max-w-[1280px] flex-1 gap-8 w-full">
+      <main className="flex-1 overflow-y-auto bg-gray-50 ml-64">
+        <div className="flex-1 flex justify-center py-8 px-4 md:px-8 lg:px-12">
+          <div className="flex flex-col max-w-[1280px] flex-1 gap-8 w-full">
           {/* PAGE HEADING */}
           <div className="flex flex-wrap justify-between gap-3 border-b-2 border-gray-300 pb-6">
             <div className="flex min-w-72 flex-col gap-2">
@@ -158,22 +158,9 @@ export default function Report() {
               {/* IMPACT VISUALIZER */}
               <div className="rounded-lg bg-white border-2 border-gray-300 overflow-hidden flex flex-col h-full min-h-[320px] shadow-lg">
                 <div className="p-4 border-b-2 border-gray-300 flex justify-between items-center bg-gray-100">
-                  <h3 className="text-gray-900 text-sm font-bold uppercase tracking-wider flex items-center gap-2">
-                    🌲
-                    Visualisasi Dampak
-                  </h3>
-                  <span className="bg-emerald-100 text-emerald-600 text-[10px] px-2 py-0.5 rounded border-2 border-emerald-500">LANGSUNG</span>
-                </div>
-                <div className="relative flex-1 bg-gray-100 flex items-end justify-center overflow-hidden group">
-                  <div className="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700"
-                    style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuARXzZVzjTOaYqUZ3_GKMNTGCXdkgTCiyc-bUPPOo0nR2RZvv_7IW5iBT6K7ZfLXaYuZcWSqzEQ50s7UFTf15-7NoQA4Ko2OKhptpX921PzsWRvFBsEvgKBkV8ijeDwa6R9xgtpZdnjrC57SIIEOSDJWJaZo4sdxZvVj8djTMUBxGo9ffiLrxcL30kO-2B4eDTi8aZQHz06zuPjUECGTq4ePM5_QozAdbrxK8938GHuh_eT2fQoCZ5MYoZlckR3RJ25ZEfW-_0f4us")', imageRendering: 'pixelated'}}>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
-                  <div className="relative z-10 p-6 w-full">
-                    <div className="bg-white/90 backdrop-blur-sm border-2 border-gray-300 p-4 rounded text-center shadow-lg">
-                      <p className="text-gray-600 text-xs uppercase mb-1">Setara Dunia Nyata</p>
-                      <p className="text-gray-900 font-bold text-lg">Pabrik Anda telah menanam <span className="text-emerald-600 text-xl">45</span> pohon virtual.</p>
-                    </div>
+                  <div>
+                    <p className="text-gray-600 text-xs uppercase mb-1">Setara Dunia Nyata</p>
+                    <p className="text-gray-900 font-bold text-lg">Pabrik Anda telah menanam <span className="text-emerald-600 text-xl">45</span> pohon virtual.</p>
                   </div>
                 </div>
               </div>
@@ -323,9 +310,9 @@ export default function Report() {
             </div>
           </div>
 
-        </div>
           </div>
         </div>
+      </main>
       </div>
     </div>
   );

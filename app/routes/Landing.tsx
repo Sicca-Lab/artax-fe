@@ -8,6 +8,7 @@ import {
   GlobeAltIcon,
   CommandLineIcon,
   ChartBarIcon,
+  ClockIcon,
 } from '@heroicons/react/24/outline';
 import Ticker from '../components/Ticker';
 import Logo from '../components/Logo';
@@ -25,29 +26,32 @@ export default function Landing() {
     <div className="min-h-screen bg-white text-gray-900 font-display">
       <Ticker />
 
-      <div className="layout-container flex h-full grow flex-col">
-        {/* TOP NAV BAR */}
-        <header className="flex items-center justify-between px-6 md:px-20 py-6 border-b-4 border-emerald-200 bg-white shadow-sm">
-          <Logo />
-          <div className="hidden md:flex flex-1 justify-end gap-10 items-center">
-            <nav className="flex items-center gap-8 uppercase text-xs font-bold tracking-widest">
-              <a className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary" href="#">Pasar</a>
-              <a className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary" href="#">Alat ESG</a>
-              <a className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary" href="#">Zona Surabaya</a>
-              <a className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary" href="#">Terminal</a>
-            </nav>
-            <div className="flex gap-4">
-              <a href="/login" className="bg-gray-100 text-gray-900 px-6 py-2 font-bold uppercase text-sm border-b-4 border-r-4 border-gray-300 active:border-0 active:translate-y-1 hover:bg-gray-200 transition-colors">
-                Masuk
-              </a>
-              <button className="bg-emerald-500 text-white px-6 py-2 font-bold uppercase text-sm border-b-4 border-r-4 border-emerald-700 active:border-0 active:translate-y-1 hover:bg-emerald-600 transition-colors">
-                Hubungi
-              </button>
+      {/* NAV */}
+      <nav className="fixed top-8 left-0 right-0 z-40 bg-white border-b-4 border-emerald-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            <Logo />
+            <div className="hidden md:flex flex-1 justify-end gap-10 items-center">
+              <nav className="flex items-center gap-8 uppercase text-xs font-bold tracking-widest">
+                <a className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary" href="#">Pasar</a>
+                <a className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary" href="#">Alat ESG</a>
+                <a className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary" href="#">Zona Surabaya</a>
+                <a className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary" href="#">Terminal</a>
+              </nav>
+              <div className="flex gap-4">
+                <a href="/login" className="bg-gray-100 text-gray-900 px-6 py-2 font-bold uppercase text-sm border-b-4 border-r-4 border-gray-300 active:border-0 active:translate-y-1 hover:bg-gray-200 transition-colors">
+                  Masuk
+                </a>
+                <button className="bg-emerald-500 text-white px-6 py-2 font-bold uppercase text-sm border-b-4 border-r-4 border-emerald-700 active:border-0 active:translate-y-1 hover:bg-emerald-600 transition-colors">
+                  Hubungi
+                </button>
+              </div>
             </div>
           </div>
-        </header>
+        </div>
+      </nav>
 
-        <main className="flex-1">
+      <main className="pt-28">
           {/* HERO SECTION */}
           <section className="px-6 md:px-20 py-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -186,6 +190,154 @@ export default function Landing() {
             </div>
           </section>
 
+          {/* PRICING SECTION */}
+          <section className="px-6 md:px-20 py-24 bg-white">
+            <div className="flex flex-col gap-12">
+              <div className="text-center max-w-3xl mx-auto">
+                <h2 className="text-gray-900 text-5xl font-black uppercase font-display leading-none mb-4">
+                  PAKET <span className="text-emerald-500 italic">LAYANAN</span>
+                </h2>
+                <p className="text-gray-600 text-lg">
+                  Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Dari pengurusan NIB hingga AMDAL lengkap.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* BASIC PACKAGE */}
+                <div className="border-4 border-gray-300 bg-white p-8 hover:border-gray-400 transition-all group">
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-black uppercase text-gray-900 mb-2">PAKET BASIC</h3>
+                    <p className="text-gray-600 text-sm mb-4">Untuk usaha kecil dengan dampak lingkungan minimal</p>
+                    <div className="mb-4">
+                      <div className="text-4xl font-black text-gray-900 mb-1">Rp 15JT</div>
+                      <div className="flex items-center gap-2 text-xs text-gray-600 font-mono uppercase">
+                        <ClockIcon className="w-4 h-4" />
+                        25-35 Hari
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-gray-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Konsultasi awal dengan tim legal</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-gray-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Persiapan & pengajuan NIB</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-gray-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Dukungan hingga NIB diterbitkan</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-gray-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Chat support 24/7</span>
+                    </div>
+                  </div>
+
+                  <button className="w-full bg-gray-500 text-white font-black uppercase text-sm px-6 py-4 border-b-4 border-r-4 border-gray-700 active:border-0 active:translate-y-1 hover:bg-gray-600 transition-all">
+                    PILIH PAKET
+                  </button>
+                </div>
+
+                {/* STANDARD PACKAGE - RECOMMENDED */}
+                <div className="border-4 border-emerald-500 bg-emerald-50 p-8 transform md:scale-105 relative shadow-xl">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-6 py-2 text-xs font-black uppercase border-2 border-yellow-600 shadow-lg">
+                    REKOMENDASI
+                  </div>
+
+                  <div className="mb-6 mt-2">
+                    <h3 className="text-2xl font-black uppercase text-emerald-600 mb-2">PAKET STANDARD</h3>
+                    <p className="text-gray-700 text-sm mb-4">Paket lengkap untuk industri limbah & daur ulang</p>
+                    <div className="mb-4">
+                      <div className="text-4xl font-black text-gray-900 mb-1">Rp 45JT</div>
+                      <div className="flex items-center gap-2 text-xs text-gray-700 font-mono uppercase">
+                        <ClockIcon className="w-4 h-4" />
+                        50-70 Hari
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-emerald-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-900 font-medium">Semua layanan Paket Basic</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-emerald-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-900 font-medium">Penyusunan AMDAL lengkap</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-emerald-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-900 font-medium">Penyusunan RKL & RPL</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-emerald-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-900 font-medium">Pendampingan hingga keputusan kelayakan</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-emerald-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-900 font-medium">Revisi dokumen (hingga 3x)</span>
+                    </div>
+                  </div>
+
+                  <button className="w-full bg-emerald-500 text-white font-black uppercase text-sm px-6 py-4 border-b-4 border-r-4 border-emerald-700 active:border-0 active:translate-y-1 hover:bg-emerald-600 transition-all">
+                    PILIH PAKET
+                  </button>
+                </div>
+
+                {/* PREMIUM PACKAGE */}
+                <div className="border-4 border-cyan-500 bg-white p-8 hover:border-cyan-600 transition-all group">
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-black uppercase text-cyan-600 mb-2">PAKET PREMIUM</h3>
+                    <p className="text-gray-600 text-sm mb-4">Paket premium dengan layanan lengkap & prioritas tinggi</p>
+                    <div className="mb-4">
+                      <div className="text-4xl font-black text-gray-900 mb-1">Rp 75JT</div>
+                      <div className="flex items-center gap-2 text-xs text-gray-600 font-mono uppercase">
+                        <ClockIcon className="w-4 h-4" />
+                        40-60 Hari
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-cyan-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Semua layanan Paket Standard</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-cyan-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Prioritas penanganan (fast-track)</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-cyan-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Konsultasi dengan expert senior</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-cyan-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Revisi dokumen unlimited</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 bg-cyan-600 mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Asuransi dokumen & priority support</span>
+                    </div>
+                  </div>
+
+                  <button className="w-full bg-cyan-500 text-white font-black uppercase text-sm px-6 py-4 border-b-4 border-r-4 border-cyan-700 active:border-0 active:translate-y-1 hover:bg-cyan-600 transition-all">
+                    PILIH PAKET
+                  </button>
+                </div>
+              </div>
+
+              <div className="text-center pt-8">
+                <a href="/document-register-pricing" className="inline-flex items-center gap-2 text-emerald-600 font-bold uppercase text-sm tracking-wider hover:gap-3 transition-all">
+                  LIHAT DETAIL LENGKAP <ArrowRightIcon className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </section>
+
           {/* CALL TO ACTION TERMINAL */}
           <section className="px-6 md:px-20 py-20 bg-white">
             <div className="bg-gray-900 border-4 border-emerald-500 p-8 md:p-16 flex flex-col md:flex-row gap-12 items-center justify-between relative overflow-hidden">
@@ -209,10 +361,10 @@ export default function Landing() {
               </div>
             </div>
           </section>
-        </main>
+      </main>
 
-        {/* FOOTER */}
-        <footer className="bg-gray-900 border-t-8 border-emerald-500 px-6 md:px-20 py-16">
+      {/* FOOTER */}
+      <footer className="bg-gray-900 border-t-8 border-emerald-500 px-6 md:px-20 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
@@ -268,8 +420,7 @@ export default function Landing() {
               <ChartBarIcon className="w-5 h-5 cursor-pointer hover:text-emerald-400" />
             </div>
           </div>
-        </footer>
-      </div>
+      </footer>
     </div>
   );
 }

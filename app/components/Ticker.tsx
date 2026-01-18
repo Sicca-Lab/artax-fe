@@ -11,7 +11,7 @@ export default function Ticker() {
   ];
 
   return (
-    <div className="ticker-wrap font-display font-bold uppercase tracking-widest text-xs border-y-2 border-gray-300 sticky top-0 z-50 bg-emerald-500 text-white overflow-hidden">
+    <div className="ticker-wrap font-display font-bold uppercase tracking-widest text-xs border-b-2 border-gray-300 fixed top-0 left-0 right-0 z-50 bg-emerald-500 text-white overflow-hidden h-8 flex items-center">
       <style>{`
         @keyframes ticker-scroll {
           0% {

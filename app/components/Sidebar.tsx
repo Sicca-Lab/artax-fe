@@ -19,7 +19,7 @@ interface SidebarProps {
 
 export default function Sidebar({ items, userInfo }: SidebarProps) {
   return (
-    <aside className="hidden w-64 flex-col border-r-2 border-gray-300 bg-white p-4 md:flex shadow-lg">
+    <aside className="hidden w-64 flex-col border-r-2 border-gray-300 bg-white p-4 md:flex shadow-lg fixed left-0 top-28 bottom-0 z-30">
       <nav className="flex flex-1 flex-col gap-2">
         {items.map((item) => (
           <a
